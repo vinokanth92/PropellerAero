@@ -178,10 +178,6 @@ def getFile(fileInfoList, baseStationID, startDate, endDate):
 def unZipFiles():
     """Unzips .gz files using gzip module"""
 
-    # #Setup logging
-    # logging.basicConfig(level=logging.DEBUG,
-    #                 format='@%(module)s.%(funcName)s %(levelname)-s:%(message)s')
-
     #Get list of files in the dir to iterate and unzip
     filesList = os.listdir(os.getcwd())
     fileCounter = 0 #file counter to append to filename
