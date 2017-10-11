@@ -136,13 +136,15 @@ def getFile(fileInfoList, baseStationID, startDate, endDate):
             finally:
                 localFile.close()
 
-
+        #If no hour files are found. Check for day files 
         if deleteFilesCount == len(fileInfoList):
 
             logging.info("Time block files not found. Checking for day entries.")
             dayOfYear = fileInfoList[0][1] #get day of year from fileInfoList
             
             while startDate != (endDate + timedelta(days = 1)): 
+
+                #Compose day filename according to format
                 fileName = baseStationID + str(dayOfYear) +  "0." + str(item[0])[2:len(str(item[0]))] + "o.gz"                
                 localFile = open(fileName, 'wb')
                 
